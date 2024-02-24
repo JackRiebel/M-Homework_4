@@ -75,6 +75,7 @@ public boolean initializeStock(String vehicleFilePath)
 				 	addVehicle(vehicle);
 			 }
 			}
+		fileIn.close();
 			 
 	}		
 		catch(Exception e) 
