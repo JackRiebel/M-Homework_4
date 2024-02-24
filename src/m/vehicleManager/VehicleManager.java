@@ -11,6 +11,80 @@ public class VehicleManager {
     private String vehicleFilePath;
     private ArrayList<Vehicle> vehicleList;
 
+//Global Variables that made the initializeStock method run smoother.
+    String testline;
+    String splitBy = ","; 
+public boolean initializeStock(String vehicleFilePath) 
+{
+	//List<List<String>> records = new ArrayList<>();
+	try {
+	BufferedReader fileIn = new BufferedReader(new FileReader(vehicleFilePath));
+	//Eliminate Header Line
+	fileIn.readLine();
+
+		while((testline = fileIn.readLine())!=null)
+		{
+			String [] input = testline.split(splitBy);
+		
+			String type = input[0];
+				//System.out.println("type" + type);
+			String brand = input[1];
+			 	//System.out.println("brand" + brand);
+			 String make = input[2];
+			 	//System.out.println("make" + make);
+			long modelYear = Long.parseLong(input[3]);
+			 	//System.out.println("year" + modelYear);
+			 double price = Double.parseDouble(input[4]);
+			 	//System.out.println("price" + price);
+			VehicleColor color = VehicleColor.valueOf(input[5]);
+			 	//System.out.println("color" + color);
+			 FuelType fueltype = FuelType.valueOf(input[6]);
+			 	//System.out.println("fueltype" + fueltype);
+			 double mileage = Double.parseDouble(input[7]);
+				//System.out.println("mileage" + mileage);
+			 double mass = Double.parseDouble(input[8]);
+			 	//System.out.println("mass" + mass);
+			int cylinders = Integer.parseInt(input[9]);
+			 	//System.out.println("cylinders" + cylinders);
+			 double gasTankCapacity = Double.parseDouble(input[10]);
+			 	//System.out.println("gasTankCapacity" + gasTankCapacity);
+			 StartMechanism startType = StartMechanism.valueOf(input[11]);
+			 	//System.out.println("startType" + startType);
+			 
+			 if(type == "Car") 
+			 {
+				 Vehicle vehicle = new Car(brand,make,modelYear,price,color,fueltype,mileage,mass,cylinders,gasTankCapacity,startType);
+				 vehicleList.add(vehicle);
+			 }
+			 
+			 if(type == "MotorBike") 
+			 {
+				 Vehicle vehicle = new MotorBike(brand,make,modelYear,price,color,fueltype,mileage,mass,cylinders,gasTankCapacity,startType);
+			 	 vehicleList.add(vehicle);
+			 }
+			 
+			 if(type == "SUV") 
+			 {
+				 Vehicle vehicle = new SUV(brand,make,modelYear,price,color,fueltype,mileage,mass,cylinders,gasTankCapacity,startType);
+				 addVehicle(vehicle);
+			 }
+			 
+			 if(type == "Truck")
+			 {
+				 Vehicle vehicle = new Truck(brand,make,modelYear,price,color,fueltype,mileage,mass,cylinders,gasTankCapacity,startType);
+				 	addVehicle(vehicle);
+			 }
+			}
+			 
+	}		
+		catch(Exception e) 
+		{
+			System.out.println("Error: Data not found");
+			return false;
+		}
+	return true;
+}
+
 
 public void displayAllTruckInformation() {
     boolean found = false;
