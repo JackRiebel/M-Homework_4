@@ -167,6 +167,16 @@ public int getNumberOfVehiclesByType(Class clazz) {
     return count;
 }
 
+//getVehicleWithHighestMaintencanceCost
+public Vehicle getVehicleWithHighestMaintenanceCost(double distance) {
+	
+}
+
+//getVehicleWithHighestMaintencanceCost
+public Vehicle getVehicleWithLowestMaintenanceCost(double distance) {
+	
+}
+
 public boolean saveVehicleList() {
     try (BufferedWriter bw = new BufferedWriter(new FileWriter(vehicleFilePath))) {
         for (Vehicle v : vehicleList) {
@@ -180,3 +190,8 @@ public boolean saveVehicleList() {
     }
 }
 
+public double getAverageFuelEfficiencyOfSUVs(double distance, double fuelPrice) {
+	
+}
+
+}
