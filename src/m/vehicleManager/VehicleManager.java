@@ -3,7 +3,9 @@ package m.vehicleManager;
 import m.vehicle.*;
 import java.util.ArrayList;
 import java.util.Random;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -84,6 +86,17 @@ public boolean initializeStock(String vehicleFilePath)
 			return false;
 		}
 	return true;
+}
+
+public void displayAllCarInformation() {
+	boolean found = false;
+	for (Vehicle v : vehicleList) {
+		displayVehicleInformation(v);
+		found = true;
+	}
+	if (!found) {
+		System.out.println("No vehicle in inventory");
+	}
 }
 
 
