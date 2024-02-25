@@ -11,6 +11,18 @@ public class MotorBike extends Vehicle {
 		super(brand, make, modelYear, price, color, fuelType, mileage, mass, cylinders, gasTankCapacity, startType);
 		// TODO Auto-generated constructor stub
 	}
+	
+	@Override
+	public double calculateMaintenanceCost(double distance) {
+		double maintenanceCost = (distance * mass * (currentYear() - modelYear) * cylinders * 0.002);
+		return maintenanceCost;
+	}
+	
+	@Override
+	public double calculateFuelEfficiency (double distance, double fuelPrice) {
+		double fuelEfficiency = (cylinders * gasTankCapacity * fuelPrice / distance * 0.003);
+		return fuelEfficiency;
+	}
 
 	@Override
 	public String toCsvString() {

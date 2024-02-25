@@ -8,8 +8,16 @@ public class Car extends Vehicle {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Car() {
-		
+	@Override
+	public double calculateMaintenanceCost(double distance) {
+		double maintenanceCost = (distance * mass * (currentYear() - modelYear) * cylinders * 0.002);
+		return maintenanceCost;
+	}
+	
+	@Override
+	public double calculateFuelEfficiency (double distance, double fuelPrice) {
+		double fuelEfficiency = (cylinders * gasTankCapacity * fuelPrice / distance * 0.003);
+		return fuelEfficiency;
 	}
 
 	@Override

@@ -13,6 +13,18 @@ public class Truck extends Vehicle  {
 	}
 
 	@Override
+	public double calculateMaintenanceCost(double distance) {
+		double maintenanceCost = (distance * mass * (currentYear() - modelYear) * cylinders * 0.002);
+		return maintenanceCost;
+	}
+	
+	@Override
+	public double calculateFuelEfficiency (double distance, double fuelPrice) {
+		double fuelEfficiency = (cylinders * gasTankCapacity * fuelPrice / distance * 0.003);
+		return fuelEfficiency;
+	}
+	
+	@Override
 	public String toCsvString() {
 		// TODO Auto-generated method stub
 		return super.toCsvString();
