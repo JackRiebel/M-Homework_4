@@ -122,4 +122,19 @@ public abstract class Vehicle {
 	               + fuelType + "," + mileage + "," + mass + "," + cylinders + ","
 	               + gasTankCapacity + "," + startType;
 	    }
+
+	 public int getCurrentYear() {
+		 return 2024;
+	 }
+	 
+	 public double calculateMaintenanceCost(double distance) {
+	 	 // TODO Auto-generated method stub
+		 return 0;
+	 }
+
+	public double calculateFuelEfficiency(double distance, double fuelPrice) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
