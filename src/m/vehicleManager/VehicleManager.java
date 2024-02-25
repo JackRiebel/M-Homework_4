@@ -267,6 +267,89 @@ public boolean saveVehicleList() {
         return false;
     }
 }
+public Vehicle getVehicleWithLowestFuelEfficiency(double distance, double fuelPrice) {
+	//Make Sure List isn't empty
+	if (vehicleList.isEmpty()) {
+		return null;
+	}
+	//Variables to Track Maintenance Cost
+	Vehicle lowestFuelEfficientVehicle = null;
+	double lowestFuelEfficiency = Double.MAX_VALUE;
+	
+	//Array to Store Vehicles if Their MaintenanceCost is the same
+	ArrayList<Vehicle> fuelEfficiencyList = new ArrayList<>();
+	
+	//Find the Highest Maintenance Cost
+	for (Vehicle vehicle : vehicleList) {
+		double maintenanceCost = vehicle.calculateFuelEfficiency(distance, fuelPrice);
+		if (maintenanceCost < lowestFuelEfficiency) {
+			//Store Vehicle if maintenanceCost is > Previous Vehicle
+			lowestFuelEfficiency = maintenanceCost;
+			//highestFuelEfficientVehicle = vehicle;
+		}
+	}
+	for (Vehicle vehicle : vehicleList) {
+		double maintenanceCost = vehicle.calculateFuelEfficiency(distance, fuelPrice);
+		if (maintenanceCost == lowestFuelEfficiency) {
+		//Store Vehicle in maintenanceCostList
+		fuelEfficiencyList.add(vehicle);
+	}
+		
+		
+		//Select randomVehicle if maintenanceCostList != null
+		if (fuelEfficiencyList != null && fuelEfficiencyList.size() > 1) {
+			Random rand = new Random();
+			int index = rand.nextInt(fuelEfficiencyList.size());
+			//Assign highestMaintenanceCostVehicle a random vehicle
+			lowestFuelEfficientVehicle = fuelEfficiencyList.get(index);
+		}
+		}
+	//Return highestMaintenanceVehicle
+	return lowestFuelEfficientVehicle;	
+}
+public Vehicle getVehicleWithHighestFuelEfficiency(double distance, double fuelPrice) {
+	
+	//Make Sure List isn't empty
+	if (vehicleList.isEmpty()) {
+		return null;
+	}
+	//Variables to Track Maintenance Cost
+	Vehicle highestFuelEfficientVehicle = null;
+	double highestFuelEfficiency = Double.MIN_VALUE;
+	
+	//Array to Store Vehicles if Their MaintenanceCost is the same
+	ArrayList<Vehicle> fuelEfficiencyList = new ArrayList<>();
+	
+	//Find the Highest Maintenance Cost
+	for (Vehicle vehicle : vehicleList) {
+		double maintenanceCost = vehicle.calculateFuelEfficiency(distance, fuelPrice);
+		if (maintenanceCost > highestFuelEfficiency) {
+			//Store Vehicle if maintenanceCost is > Previous Vehicle
+			highestFuelEfficiency = maintenanceCost;
+			//highestFuelEfficientVehicle = vehicle;
+		}
+	}
+	for (Vehicle vehicle : vehicleList) {
+		double maintenanceCost = vehicle.calculateFuelEfficiency(distance, fuelPrice);
+		if (maintenanceCost == highestFuelEfficiency) {
+		//Store Vehicle in maintenanceCostList
+		fuelEfficiencyList.add(vehicle);
+	}
+		
+		
+		//Select randomVehicle if maintenanceCostList != null
+		if (fuelEfficiencyList != null && fuelEfficiencyList.size() > 1) {
+			//Create the random variable if needed
+			Random rand = new Random();
+			int index = rand.nextInt(fuelEfficiencyList.size());
+			//Assign highestMaintenanceCostVehicle a random vehicle
+			highestFuelEfficientVehicle = fuelEfficiencyList.get(index);
+		}
+		}
+	//Return highestMaintenanceVehicle
+	return highestFuelEfficientVehicle;	
+}
+
 
 //getAverageFuelEfficiencyOfSUVs
 public double getAverageFuelEfficiencyOfSUVs(double distance,double fuelPrice) {
