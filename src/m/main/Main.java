@@ -7,7 +7,7 @@ public class Main {
 		VehicleManager vehicleManager = new VehicleManager();
 
 		// Read vehicle data from the vehcileList.csv file and initialize objects.
-		vehicleManager.initializeStock("Files\\vehicleList.csv");
+		vehicleManager.initializeStock("vehicleList.csv");
 
 		
 		
