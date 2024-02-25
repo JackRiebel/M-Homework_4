@@ -197,7 +197,7 @@ public Vehicle getVehicleWithHighestMaintenanceCost(double distance) {
 	
 	//Find the Highest Maintenance Cost
 	for (Vehicle vehicle : vehicleList) {
-		double maintenanceCost = distance;
+		double maintenanceCost = vehicle.calculateMaintenanceCost(distance);
 		if (maintenanceCost == highestMaintenanceCost) {
 			//Store Vehicle in maintenanceCostList
 			maintenanceCostList.add(vehicle);
@@ -234,7 +234,7 @@ public Vehicle getVehicleWithLowestMaintenanceCost(double distance) {
 	
 	//Find the Lowest Maintenance Cost
 	for (Vehicle vehicle : vehicleList) {
-		double maintenanceCost = distance;
+		double maintenanceCost = vehicle.calculateMaintenanceCost(distance);
 		if (maintenanceCost == lowestMaintenanceCost) {
 			//Store Vehicle in maintenanceCostList
 			maintenanceCostList.add(vehicle);
@@ -266,4 +266,38 @@ public boolean saveVehicleList() {
         e.printStackTrace();
         return false;
     }
-}}
+}
+
+//getAverageFuelEfficiencyOfSUVs
+public double getAverageFuelEfficiencyOfSUVs(double distance,double fuelPrice) {
+	
+	//Check to make sure Vehicle List is Empty
+	if (vehicleList.isEmpty()) {
+		return -1.0;
+	}
+	
+	//Create Variables
+	int numberOfSUVs = 0;
+	double combinedEfficiency = 0.0;
+	double averageEfficiency = 0.0;
+	
+	//Count number of SUVs and sum their fuel efficiency
+	for (Vehicle v : vehicleList) {
+        if (v instanceof SUV) {
+            numberOfSUVs++;
+            combinedEfficiency = vehicle.calculateFuelEfficiency(distance, fuelPrice);
+        }
+	}
+	
+	//Calculate the average efficiency
+	averageEfficiency = combinedEfficiency / numberOfSUVs;
+	
+	//Return either -1.0 or the average efficiency
+	if (numberOfSUVs == 0) {
+		return -1.0;
+	} else {
+		return averageEfficiency;
+	}
+}
+
+}
