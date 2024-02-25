@@ -123,7 +123,7 @@ public abstract class Vehicle {
 	               + gasTankCapacity + "," + startType;
 	    }
 
-	 public int getCurrentYear() {
+	 public int currentYear() {
 		 return 2024;
 	 }
 	 
