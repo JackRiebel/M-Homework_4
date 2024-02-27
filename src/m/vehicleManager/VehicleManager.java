@@ -156,8 +156,11 @@ public boolean initializeStock(String vehicleFilePath)
 public void displayAllCarInformation() {
 	boolean found = false;
 	for (Vehicle v : vehicleList) {
+		if (v instanceof Car)
+		{
 		displayVehicleInformation(v);
 		found = true;
+		}
 	}
 	if (!found) {
 		System.out.println("No vehicle in inventory");
