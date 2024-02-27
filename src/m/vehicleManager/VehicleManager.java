@@ -368,7 +368,7 @@ public double getAverageFuelEfficiencyOfSUVs(double distance,double fuelPrice) {
 	for (Vehicle v : vehicleList) {
         if (v instanceof SUV) {
             numberOfSUVs++;
-            combinedEfficiency = vehicle.calculateFuelEfficiency(distance, fuelPrice);
+            combinedEfficiency = v.calculateFuelEfficiency(distance, fuelPrice);
         }
 	}
 	
