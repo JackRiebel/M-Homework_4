@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class VehicleManager {
     private String vehicleFilePath;
-    private ArrayList<Vehicle> vehicleList;
+     private ArrayList<Vehicle> vehicleList = new ArrayList<>();
 
 //Global Variables that made the initializeStock method run smoother.
     String testline;
