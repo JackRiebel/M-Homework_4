@@ -27,58 +27,123 @@ public boolean initializeStock(String vehicleFilePath)
 		while((testline = fileIn.readLine())!=null)
 		{
 			String [] input = testline.split(splitBy);
+////Different Object Initializers			
+			Vehicle vehicleC = new Car();
+			Vehicle vehicleT = new Truck();
+			Vehicle vehicleS = new SUV();
+			Vehicle vehicleM = new MotorBike();
+
+///Car Object Builder
+		if(input[0].equals("Car"))
+		{
+			vehicleC.setBrand(input[1]);
+			
+			vehicleC.setMake(input[2]);
+			
+			vehicleC.setModelYear(Long.parseLong(input[3]));
+			
+			vehicleC.setPrice(Double.parseDouble(input[4]));
+			
+			vehicleC.setColor(VehicleColor.valueOf(input[5]));
+			
+			vehicleC.setFuelType(FuelType.valueOf(input[6]));
+			 
+			vehicleC.setMileage(Double.parseDouble(input[7]));
+				
+			vehicleC.setMass(Double.parseDouble(input[8]));
+			 
+			vehicleC.setCylinders(Integer.parseInt(input[9]));
+			 	
+			vehicleC.setGasTankCapacity(Double.parseDouble(input[10]));
+			 	
+			vehicleC.setStartType(StartMechanism.valueOf(input[11]));
+			 	
+				 vehicleList.add(vehicleC);
+		}
 		
-			String type = input[0];
-				//System.out.println("type" + type);
-			String brand = input[1];
-			 	//System.out.println("brand" + brand);
-			 String make = input[2];
-			 	//System.out.println("make" + make);
-			long modelYear = Long.parseLong(input[3]);
-			 	//System.out.println("year" + modelYear);
-			 double price = Double.parseDouble(input[4]);
-			 	//System.out.println("price" + price);
-			VehicleColor color = VehicleColor.valueOf(input[5]);
-			 	//System.out.println("color" + color);
-			 FuelType fueltype = FuelType.valueOf(input[6]);
-			 	//System.out.println("fueltype" + fueltype);
-			 double mileage = Double.parseDouble(input[7]);
-				//System.out.println("mileage" + mileage);
-			 double mass = Double.parseDouble(input[8]);
-			 	//System.out.println("mass" + mass);
-			int cylinders = Integer.parseInt(input[9]);
-			 	//System.out.println("cylinders" + cylinders);
-			 double gasTankCapacity = Double.parseDouble(input[10]);
-			 	//System.out.println("gasTankCapacity" + gasTankCapacity);
-			 StartMechanism startType = StartMechanism.valueOf(input[11]);
-			 	//System.out.println("startType" + startType);
+////Truck Object Builder
+		if(input[0].equals("Truck"))
+		{
+			vehicleT.setBrand(input[1]);
+			
+			vehicleT.setMake(input[2]);
+			
+			vehicleT.setModelYear(Long.parseLong(input[3]));
+			
+			vehicleT.setPrice(Double.parseDouble(input[4]));
+			
+			vehicleT.setColor(VehicleColor.valueOf(input[5]));
+			
+			vehicleT.setFuelType(FuelType.valueOf(input[6]));
 			 
-			 if(type == "Car") 
-			 {
-				 Vehicle vehicle = new Car(brand,make,modelYear,price,color,fueltype,mileage,mass,cylinders,gasTankCapacity,startType);
-				 vehicleList.add(vehicle);
-			 }
+			vehicleT.setMileage(Double.parseDouble(input[7]));
+				
+			vehicleT.setMass(Double.parseDouble(input[8]));
 			 
-			 if(type == "MotorBike") 
-			 {
-				 Vehicle vehicle = new MotorBike(brand,make,modelYear,price,color,fueltype,mileage,mass,cylinders,gasTankCapacity,startType);
-			 	 vehicleList.add(vehicle);
-			 }
+			vehicleT.setCylinders(Integer.parseInt(input[9]));
+			 	
+			vehicleT.setGasTankCapacity(Double.parseDouble(input[10]));
+			 	
+			vehicleT.setStartType(StartMechanism.valueOf(input[11]));
+			 	
+				 vehicleList.add(vehicleT);
+		}
+///SUV Object Builder
+		if(input[0].equals("SUV"))
+		{
+			vehicleS.setBrand(input[1]);
+			
+			vehicleS.setMake(input[2]);
+			
+			vehicleS.setModelYear(Long.parseLong(input[3]));
+			
+			vehicleS.setPrice(Double.parseDouble(input[4]));
+			
+			vehicleS.setColor(VehicleColor.valueOf(input[5]));
+			
+			vehicleS.setFuelType(FuelType.valueOf(input[6]));
 			 
-			 if(type == "SUV") 
-			 {
-				 Vehicle vehicle = new SUV(brand,make,modelYear,price,color,fueltype,mileage,mass,cylinders,gasTankCapacity,startType);
-				 addVehicle(vehicle);
-			 }
+			vehicleS.setMileage(Double.parseDouble(input[7]));
+				
+			vehicleS.setMass(Double.parseDouble(input[8]));
 			 
-			 if(type == "Truck")
-			 {
-				 Vehicle vehicle = new Truck(brand,make,modelYear,price,color,fueltype,mileage,mass,cylinders,gasTankCapacity,startType);
-				 	addVehicle(vehicle);
-			 }
+			vehicleS.setCylinders(Integer.parseInt(input[9]));
+			 	
+			vehicleS.setGasTankCapacity(Double.parseDouble(input[10]));
+			 	
+			vehicleS.setStartType(StartMechanism.valueOf(input[11]));
+			 	
+				 vehicleList.add(vehicleS);
+		}
+///MotorBike Object Builder
+		if(input[0].equals("MotorBike"))
+		{
+			vehicleM.setBrand(input[1]);
+			
+			vehicleM.setMake(input[2]);
+			
+			vehicleM.setModelYear(Long.parseLong(input[3]));
+			
+			vehicleM.setPrice(Double.parseDouble(input[4]));
+			
+			vehicleM.setColor(VehicleColor.valueOf(input[5]));
+			
+			vehicleM.setFuelType(FuelType.valueOf(input[6]));
+			 
+			vehicleM.setMileage(Double.parseDouble(input[7]));
+				
+			vehicleM.setMass(Double.parseDouble(input[8]));
+			 
+			vehicleM.setCylinders(Integer.parseInt(input[9]));
+			 	
+			vehicleM.setGasTankCapacity(Double.parseDouble(input[10]));
+			 	
+			vehicleM.setStartType(StartMechanism.valueOf(input[11]));
+			 	
+				 vehicleList.add(vehicleM);
+		}
 			}
-		fileIn.close();
-			 
+		fileIn.close();	 
 	}		
 		catch(Exception e) 
 		{
