@@ -7,6 +7,11 @@ public class Car extends Vehicle {
 		super(brand, make, modelYear, price, color, fuelType, mileage, mass, cylinders, gasTankCapacity, startType);
 		// TODO Auto-generated constructor stub
 	}
+
+	public Car()
+	{
+		
+	}
 	
 	@Override
 	public double calculateMaintenanceCost(double distance) {
